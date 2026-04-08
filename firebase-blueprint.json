@@ -1,0 +1,80 @@
+{
+  "entities": {
+    "User": {
+      "title": "User",
+      "description": "App users (customers and service providers)",
+      "type": "object",
+      "properties": {
+        "uid": { "type": "string" },
+        "email": { "type": "string" },
+        "displayName": { "type": "string" },
+        "photoURL": { "type": "string" },
+        "role": { "type": "string", "enum": ["customer", "provider", "admin"] },
+        "createdAt": { "type": "string", "format": "date-time" }
+      },
+      "required": ["uid", "email", "role"]
+    },
+    "ServiceProvider": {
+      "title": "Service Provider",
+      "description": "Details of service providers",
+      "type": "object",
+      "properties": {
+        "id": { "type": "string" },
+        "name": { "type": "string" },
+        "category": { "type": "string" },
+        "phone": { "type": "string" },
+        "rating": { "type": "number" },
+        "reviews": { "type": "number" },
+        "location": { "type": "string" },
+        "image": { "type": "string" },
+        "isFeatured": { "type": "boolean" },
+        "ownerUid": { "type": "string" }
+      },
+      "required": ["name", "category", "phone", "ownerUid"]
+    },
+    "LocationRequest": {
+      "title": "Location Request",
+      "description": "Requests to see a provider's location",
+      "type": "object",
+      "properties": {
+        "id": { "type": "string" },
+        "fromUid": { "type": "string" },
+        "toUid": { "type": "string" },
+        "status": { "type": "string", "enum": ["pending", "accepted", "rejected"] },
+        "createdAt": { "type": "string", "format": "date-time" }
+      },
+      "required": ["fromUid", "toUid", "status"]
+    },
+    "Message": {
+      "title": "Message",
+      "description": "Chat messages between users",
+      "type": "object",
+      "properties": {
+        "id": { "type": "string" },
+        "senderId": { "type": "string" },
+        "receiverId": { "type": "string" },
+        "text": { "type": "string" },
+        "createdAt": { "type": "string", "format": "date-time" }
+      },
+      "required": ["senderId", "receiverId", "text"]
+    }
+  },
+  "firestore": {
+    "/users/{uid}": {
+      "schema": "User",
+      "description": "User profiles"
+    },
+    "/providers/{providerId}": {
+      "schema": "ServiceProvider",
+      "description": "Service provider listings"
+    },
+    "/locationRequests/{requestId}": {
+      "schema": "LocationRequest",
+      "description": "Location sharing requests"
+    },
+    "/messages/{messageId}": {
+      "schema": "Message",
+      "description": "Direct messages"
+    }
+  }
+}

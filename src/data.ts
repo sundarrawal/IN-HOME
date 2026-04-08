@@ -1,0 +1,65 @@
+import { ServiceProvider, Category } from './types';
+
+export const CATEGORIES: Category[] = [
+  { id: 'plumbing', name: 'Plumbing', icon: 'Droplets' },
+  { id: 'electrical', name: 'Electrical', icon: 'Zap' },
+  { id: 'wifi', name: 'WiFi Repair', icon: 'Wifi' },
+  { id: 'cleaning', name: 'Cleaning', icon: 'Brush' },
+  { id: 'painting', name: 'Painting', icon: 'Paintbrush' },
+  { id: 'carpentry', name: 'Carpentry', icon: 'Hammer' },
+];
+
+export const SERVICE_PROVIDERS: ServiceProvider[] = [
+  {
+    id: '1',
+    name: 'Ram Bahadur Plumbing',
+    category: 'Plumbing',
+    phone: '9841234567',
+    rating: 4.8,
+    reviews: 124,
+    location: 'Kathmandu, Nepal',
+    image: 'https://picsum.photos/seed/plumber1/400/300',
+    isFeatured: true,
+  },
+  {
+    id: '2',
+    name: 'Shyam Electric Solutions',
+    category: 'Electrical',
+    phone: '9801122334',
+    rating: 4.5,
+    reviews: 89,
+    location: 'Lalitpur, Nepal',
+    image: 'https://picsum.photos/seed/electrician1/400/300',
+    isFeatured: true,
+  },
+  {
+    id: '3',
+    name: 'NetFix WiFi Repair',
+    category: 'WiFi Repair',
+    phone: '9812345678',
+    rating: 4.2,
+    reviews: 56,
+    location: 'Bhaktapur, Nepal',
+    image: 'https://picsum.photos/seed/wifi1/400/300',
+  },
+  {
+    id: '4',
+    name: 'Deepak Painting Services',
+    category: 'Painting',
+    phone: '9851098765',
+    rating: 4.9,
+    reviews: 210,
+    location: 'Kathmandu, Nepal',
+    image: 'https://picsum.photos/seed/paint1/400/300',
+  },
+  {
+    id: '5',
+    name: 'Clean Home Nepal',
+    category: 'Cleaning',
+    phone: '9860001112',
+    rating: 4.7,
+    reviews: 156,
+    location: 'Lalitpur, Nepal',
+    image: 'https://picsum.photos/seed/clean1/400/300',
+  },
+];
